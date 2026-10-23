@@ -1,0 +1,64 @@
+/* ==========================================================================
+   style.css
+   Supplementary styles that extend Tailwind's utility classes.
+   Tailwind (via CDN) handles the vast majority of styling inline in the
+   markup — this file only holds what utility classes can't express.
+   ========================================================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+/* Mobile nav panel: hidden by translating off-screen rather than display:none,
+   so the slide transition below can animate it. */
+#mobile-menu {
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+#mobile-menu.open {
+  transform: translateY(0);
+}
+
+/* Subtle shadow on the header once the page is scrolled (toggled via JS) */
+#site-header.scrolled {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Custom scrollbar for a more polished feel on desktop browsers */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #fb923c;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f97316;
+}
+
+/* Simple fade-up entrance used on hero/section content */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.6s ease-out both;
+}
