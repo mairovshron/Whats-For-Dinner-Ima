@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What's For Dinner, Ima? | Jewish &amp; Israeli Home Cooking</title>
+  <meta name="description" content="Warm, kitchen-tested Jewish and Israeli family recipes — Shabbat dinners, quick weeknight meals, and the comfort food that answers 'what's for dinner, Ima?'" />
+
+  <!-- Favicon (inline SVG data URI — no external asset dependency) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23f97316%22/><text x=%2250%22 y=%2266%22 font-size=%2258%22 text-anchor=%22middle%22>🍽️</text></svg>" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: "#fff7ed",
+              100: "#ffedd5",
+              200: "#fed7aa",
+              300: "#fdba74",
+              400: "#fb923c",
+              500: "#f97316",
+              600: "#ea580c",
+              700: "#c2410c",
+              800: "#9a3412",
+              900: "#7c2d12",
+            },
+          },
+          fontFamily: {
+            sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Custom styles (loaded after Tailwind so overrides apply) -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="bg-white text-slate-800 font-sans antialiased">
+
+  <!-- ============================== HEADER / NAV ============================== -->
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-100 transition-shadow duration-300">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Primary navigation">
+      <div class="flex items-center justify-between h-16 md:h-20">
+
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2 shrink-0">
+          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-brand-500 text-white text-xl" aria-hidden="true">🍽️</span>
+          <span class="text-xl md:text-2xl font-extrabold text-slate-900">What's For Dinner<span class="text-brand-500">?</span></span>
+        </a>
+
+        <!-- Desktop Nav Links -->
+        <div class="hidden md:flex items-center gap-8">
+          <a href="index.html" class="text-sm font-semibold text-brand-600 border-b-2 border-brand-500 pb-1" aria-current="page">Home</a>
+          <a href="recipes.html" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors duration-200">Recipes</a>
+          <a href="about.html" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors duration-200">About</a>
+          <a href="contact.html" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors duration-200">Contact</a>
+        </div>
+
+        <!-- Desktop CTA -->
+        <div class="hidden md:flex items-center gap-4">
+          <a href="recipes.html" class="inline-flex items-center justify-center rounded-full bg-brand-500 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-600 hover:shadow-md transition-all duration-200">
+            Find a Recipe
+          </a>
+        </div>
+
+        <!-- Mobile Burger Button -->
+        <button
+          id="menu-toggle"
+          type="button"
+          class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg text-slate-700 hover:bg-slate-100 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <svg id="icon-open" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="icon-close" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu Panel -->
+    <div id="mobile-menu" class="md:hidden absolute top-full left-0 right-0 bg-white border-b border-slate-100 shadow-lg" role="menu">
+      <div class="flex flex-col px-4 sm:px-6 py-4 gap-1">
+        <a href="index.html" class="rounded-lg px-4 py-3 text-base font-semibold text-brand-600 bg-brand-50" role="menuitem" aria-current="page">Home</a>
+        <a href="recipes.html" class="rounded-lg px-4 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 hover:text-brand-600 transition-colors duration-200" role="menuitem">Recipes</a>
+        <a href="about.html" class="rounded-lg px-4 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 hover:text-brand-600 transition-colors duration-200" role="menuitem">About</a>
+        <a href="contact.html" class="rounded-lg px-4 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 hover:text-brand-600 transition-colors duration-200" role="menuitem">Contact</a>
+        <a href="recipes.html" class="mt-2 inline-flex items-center justify-center rounded-full bg-brand-500 px-5 py-3 text-base font-semibold text-white shadow-sm hover:bg-brand-600 transition-colors duration-200" role="menuitem">
+          Find a Recipe
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Spacer so fixed header doesn't overlap content -->
+  <div class="h-16 md:h-20"></div>
+
+  <!-- ============================== MAIN CONTENT ============================== -->
+  <main id="top">
+
+    <!-- ========================================================================
+         HERO SECTION
+         ======================================================================== -->
+    <section class="relative bg-gradient-to-br from-brand-50 via-white to-amber-50 overflow-hidden" aria-label="Introduction">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+          <!-- Text column -->
+          <div class="text-center lg:text-left fade-in-up">
+            <span class="inline-block rounded-full bg-brand-100 text-brand-700 text-xs font-bold tracking-wide uppercase px-4 py-1.5 mb-6">
+              "Ima, what's for dinner?"
+            </span>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight">
+              Jewish &amp; Israeli home cooking, <span class="text-brand-500">answered every night.</span>
+            </h1>
+            <p class="mt-6 text-lg sm:text-xl text-slate-600 max-w-xl mx-auto lg:mx-0">
+              From golden Shabbat challah to five-ingredient weeknight saves — real family recipes, written in plain language, tested in a real kitchen.
+            </p>
+            <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <a href="recipes.html" class="inline-flex items-center justify-center rounded-full bg-brand-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-brand-200 hover:bg-brand-600 hover:-translate-y-0.5 hover:shadow-xl transition-all duration-200">
+                Browse Recipes
+              </a>
+              <a href="about.html" class="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-base font-semibold text-slate-700 border border-slate-200 hover:bg-slate-50 hover:-translate-y-0.5 transition-all duration-200">
+                Our Story
+              </a>
+            </div>
+
+            <div class="mt-10 flex items-center justify-center lg:justify-start gap-8">
+              <div>
+                <p class="text-2xl font-extrabold text-slate-900">500+</p>
+                <p class="text-sm text-slate-500">Tested recipes</p>
+              </div>
+              <div class="h-10 w-px bg-slate-200" aria-hidden="true"></div>
+              <div>
+                <p class="text-2xl font-extrabold text-slate-900">15 min</p>
+                <p class="text-sm text-slate-500">Avg. prep time</p>
+              </div>
+              <div class="h-10 w-px bg-slate-200" aria-hidden="true"></div>
+              <div>
+                <p class="text-2xl font-extrabold text-slate-900">4.8★</p>
+                <p class="text-sm text-slate-500">Average rating</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Visual column -->
+          <div class="relative fade-in-up fade-in-up-delay-1">
+            <div class="aspect-square sm:aspect-[4/3] lg:aspect-square rounded-3xl bg-white shadow-2xl shadow-brand-100 border border-slate-100 flex items-center justify-center overflow-hidden">
+              <span class="text-[10rem] sm:text-[14rem] leading-none select-none" aria-hidden="true">🫓</span>
+            </div>
+            <div class="absolute -bottom-6 -left-6 hidden sm:flex items-center gap-3 bg-white rounded-2xl shadow-xl border border-slate-100 px-5 py-4">
+              <span class="text-3xl" aria-hidden="true">🕯️</span>
+              <div>
+                <p class="text-sm font-bold text-slate-900">Shabbat-ready</p>
+                <p class="text-xs text-slate-500">New recipes weekly</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         FEATURES SECTION
+         ======================================================================== -->
+    <section id="features" class="py-16 sm:py-20 lg:py-24 bg-white" aria-labelledby="features-heading">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-14 fade-in-up">
+          <p class="text-sm font-bold uppercase tracking-wide text-brand-600 mb-3">Why cooks love us</p>
+          <h2 id="features-heading" class="text-3xl sm:text-4xl font-extrabold text-slate-900">Dinner, decided in three simple steps</h2>
+          <p class="mt-4 text-lg text-slate-600">No account, no stress — just a decision you can actually cook, built around what you already own.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+
+          <article class="group rounded-2xl border border-slate-100 bg-slate-50 p-6 sm:p-8 text-center hover:bg-white hover:border-brand-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-in-up">
+            <div class="mx-auto flex items-center justify-center w-14 h-14 rounded-2xl bg-brand-500 text-white text-2xl mb-5 group-hover:scale-110 transition-transform duration-300" aria-hidden="true">🥘</div>
+            <h3 class="font-bold text-slate-900 text-lg">Tell us what you have</h3>
+            <p class="mt-2 text-sm text-slate-600">Pick a few ingredients sitting in your fridge or pantry right now — no grocery run required.</p>
+          </article>
+
+          <article class="group rounded-2xl border border-slate-100 bg-slate-50 p-6 sm:p-8 text-center hover:bg-white hover:border-brand-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-in-up fade-in-up-delay-1">
+            <div class="mx-auto flex items-center justify-center w-14 h-14 rounded-2xl bg-brand-500 text-white text-2xl mb-5 group-hover:scale-110 transition-transform duration-300" aria-hidden="true">🎯</div>
+            <h3 class="font-bold text-slate-900 text-lg">Get matched instantly</h3>
+            <p class="mt-2 text-sm text-slate-600">Our matching engine surfaces recipes that fit your time, taste, and dietary needs.</p>
+          </article>
+
+          <article class="group rounded-2xl border border-slate-100 bg-slate-50 p-6 sm:p-8 text-center hover:bg-white hover:border-brand-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-in-up fade-in-up-delay-2">
+            <div class="mx-auto flex items-center justify-center w-14 h-14 rounded-2xl bg-brand-500 text-white text-2xl mb-5 group-hover:scale-110 transition-transform duration-300" aria-hidden="true">📋</div>
+            <h3 class="font-bold text-slate-900 text-lg">Follow clear steps</h3>
+            <p class="mt-2 text-sm text-slate-600">Every recipe is written in plain, step-by-step language — no culinary-school jargon.</p>
+          </article>
+
+          <article class="group rounded-2xl border border-slate-100 bg-slate-50 p-6 sm:p-8 text-center hover:bg-white hover:border-brand-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-in-up fade-in-up-delay-3">
+            <div class="mx-auto flex items-center justify-center w-14 h-14 rounded-2xl bg-brand-500 text-white text-2xl mb-5 group-hover:scale-110 transition-transform duration-300" aria-hidden="true">❤️</div>
+            <h3 class="font-bold text-slate-900 text-lg">Enjoy &amp; save favorites</h3>
+            <p class="mt-2 text-sm text-slate-600">Bookmark the meals that earned a spot at your table and come back to them anytime.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SERVICES / PRODUCTS SECTION — Featured Recipe Collections
+         ======================================================================== -->
+    <section id="services" class="py-16 sm:py-20 lg:py-24 bg-slate-50" aria-labelledby="services-heading">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-14 fade-in-up">
+          <p class="text-sm font-bold uppercase tracking-wide text-brand-600 mb-3">Recipe collections</p>
+          <h2 id="services-heading" class="text-3xl sm:text-4xl font-extrabold text-slate-900">Pick a night, find a meal</h2>
+          <p class="mt-4 text-lg text-slate-600">Every great dinner starts with a craving. Browse our most-loved collections, curated and kitchen-tested.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+
+          <!-- Collection card 1 -->
+          <article class="group flex flex-col rounded-2xl bg-white border border-slate-100 shadow-sm overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 fade-in-up">
+            <div class="h-44 sm:h-48 flex items-center justify-center bg-gradient-to-br from-amber-100 to-brand-100 text-6xl group-hover:scale-105 transition-transform duration-500" aria-hidden="true">🕯️</div>
+            <div class="flex flex-col flex-1 p-6">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="font-bold text-slate-900 text-lg">Shabbat</h3>
+                <span class="text-xs font-semibold text-brand-700 bg-brand-50 rounded-full px-3 py-1">Friday night</span>
+              </div>
+              <p class="text-sm text-slate-600 flex-1">Challah, roast chicken, and the classics that make the table feel like Shabbat the moment they hit it.</p>
+              <a href="recipes.html?category=Shabbat" class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-600 hover:text-brand-700 hover:gap-2.5 transition-all duration-200">
+                Explore collection
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Collection card 2 -->
+          <article class="group flex flex-col rounded-2xl bg-white border border-slate-100 shadow-sm overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 fade-in-up fade-in-up-delay-1">
+            <div class="h-44 sm:h-48 flex items-center justify-center bg-gradient-to-br from-emerald-100 to-brand-100 text-6xl group-hover:scale-105 transition-transform duration-500" aria-hidden="true">⚡</div>
+            <div class="flex flex-col flex-1 p-6">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="font-bold text-slate-900 text-lg">Quick &amp; Easy</h3>
+                <span class="text-xs font-semibold text-brand-700 bg-brand-50 rounded-full px-3 py-1">Under 45 min</span>
+              </div>
+              <p class="text-sm text-slate-600 flex-1">Shakshuka, sheet-pan chicken, and couscous salads that go from pantry to plate on a weeknight.</p>
+              <a href="recipes.html?category=Quick%20%26%20Easy" class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-600 hover:text-brand-700 hover:gap-2.5 transition-all duration-200">
+                Explore collection
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Collection card 3 -->
+          <article class="group flex flex-col rounded-2xl bg-white border border-slate-100 shadow-sm overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 fade-in-up fade-in-up-delay-2">
+            <div class="h-44 sm:h-48 flex items-center justify-center bg-gradient-to-br from-orange-100 to-brand-100 text-6xl group-hover:scale-105 transition-transform duration-500" aria-hidden="true">🍲</div>
+            <div class="flex flex-col flex-1 p-6">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="font-bold text-slate-900 text-lg">Comfort Food</h3>
+                <span class="text-xs font-semibold text-brand-700 bg-brand-50 rounded-full px-3 py-1">Hearty</span>
+              </div>
+              <p class="text-sm text-slate-600 flex-1">Matzo ball soup, potato kugel, and the slow-simmered classics for nights that call for something warm.</p>
+              <a href="recipes.html?category=Comfort%20Food" class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-600 hover:text-brand-700 hover:gap-2.5 transition-all duration-200">
+                Explore collection
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+              </a>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="text-center mt-10 fade-in-up">
+          <a href="recipes.html" class="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-700 border border-slate-200 hover:bg-slate-50 hover:-translate-y-0.5 transition-all duration-200">
+            View all recipes
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         TESTIMONIALS SECTION
+         ======================================================================== -->
+    <section id="testimonials" class="py-16 sm:py-20 lg:py-24 bg-white" aria-labelledby="testimonials-heading">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-14 fade-in-up">
+          <p class="text-sm font-bold uppercase tracking-wide text-brand-600 mb-3">Loved by home cooks</p>
+          <h2 id="testimonials-heading" class="text-3xl sm:text-4xl font-extrabold text-slate-900">Real tables, real feedback</h2>
+          <p class="mt-4 text-lg text-slate-600">Thousands of weeknight dinners solved — here's what a few of our regulars have to say.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+
+          <figure class="flex flex-col rounded-2xl bg-slate-50 border border-slate-100 p-7 sm:p-8 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 fade-in-up">
+            <div class="flex gap-1 text-brand-500 mb-4" role="img" aria-label="Rated 5 out of 5 stars">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.921-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.921-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.921-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.921-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.921-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+            </div>
+            <blockquote class="flex-1">
+              <p class="text-slate-700">"I used to open the fridge and panic every night at 5pm. Now I plug in three ingredients and I'm cooking in minutes. This has genuinely changed my weeknights."</p>
+            </blockquote>
+            <figcaption class="flex items-center gap-3 mt-6">
+              <span class="flex items-center justify-center w-11 h-11 rounded-full bg-brand-100 text-xl" aria-hidden="true">👩‍🍳</span>
+              <div>
+                <p class="font-bold text-slate-900 text-sm">Marissa Cole</p>
+                <p class="text-xs text-slate-500">Busy parent of three</p>
+              </div>
+            </figcaption>
+          </figure>
+
+          <figure class="flex flex-col rounded-2xl bg-slate-50 border border-slate-100 p-7 sm:p-8 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 fade-in-up fade-in-up-delay-1">
+            <div class="flex gap-1 text-brand-500 mb-4" role="img" aria-label="Rated 5 out of 5 stars">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.921-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.921-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.921-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.921-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.921-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+            </div>
+            <blockquote class="flex-1">
+              <p class="text-slate-700">"The recipes are written for actual humans, not professional chefs. Clear timing, clear quantities, zero guesswork. My dinners have genuinely gotten better."</p>
+            </blockquote>
+            <figcaption class="flex items-center gap-3 mt-6">
+              <span class="flex items-center justify-center w-11 h-11 rounded-full bg-brand-100 text-xl" aria-hidden="true">👨‍🍳</span>
+              <div>
+                <p class="font-bold text-slate-900 text-sm">Daniel Ferreira</p>
+                <p class="text-xs text-slate-500">Self-taught home cook</p>
+              </div>
+            </figcaption>
+          </figure>
+
+          <figure class="flex flex-col rounded-2xl bg-slate-50 border border-slate-100 p-7 sm:p-8 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 fade-in-up fade-in-up-delay-2">
+            <div class="flex gap-1 text-brand-500 mb-4" role="img" aria-label="Rated 5 out of 5 stars">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.921-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.921-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.921-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.921-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+              <svg class="w-5 h-5 text-slate-300" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.921-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+            </div>
+            <blockquote class="flex-1">
+              <p class="text-slate-700">"We've cut our weekly food waste dramatically just by cooking around what's already in the fridge. It's as much a budgeting tool for us as it is a recipe site."</p>
+            </blockquote>
+            <figcaption class="flex items-center gap-3 mt-6">
+              <span class="flex items-center justify-center w-11 h-11 rounded-full bg-brand-100 text-xl" aria-hidden="true">🧑‍🍳</span>
+              <div>
+                <p class="font-bold text-slate-900 text-sm">Priya Nandakumar</p>
+                <p class="text-xs text-slate-500">Meal-prep enthusiast</p>
+              </div>
+            </figcaption>
+          </figure>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         CTA SECTION
+         ======================================================================== -->
+    <section class="py-16 sm:py-20 bg-brand-500" aria-labelledby="cta-heading">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in-up">
+        <h2 id="cta-heading" class="text-3xl sm:text-4xl font-extrabold text-white">Got a recipe request, Ima?</h2>
+        <p class="mt-4 text-lg text-brand-50">Tell us what you're craving, or share feedback on something you made. We read every message.</p>
+        <div class="mt-8">
+          <a href="contact.html" class="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-base font-semibold text-brand-600 shadow-lg hover:bg-brand-50 hover:-translate-y-0.5 transition-all duration-200">
+            Get in Touch
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================== FOOTER ============================== -->
+  <footer class="bg-slate-900 text-slate-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Brand column -->
+        <div class="sm:col-span-2 lg:col-span-1">
+          <a href="index.html" class="flex items-center gap-2 mb-4">
+            <span class="flex items-center justify-center w-9 h-9 rounded-full bg-brand-500 text-white text-lg" aria-hidden="true">🍽️</span>
+            <span class="text-lg font-extrabold text-white">What's For Dinner<span class="text-brand-400">?</span></span>
+          </a>
+          <p class="text-sm text-slate-400 max-w-xs">
+            Helping home cooks turn "I don't know" into a meal worth making, one recipe at a time.
+          </p>
+        </div>
+
+        <!-- Explore -->
+        <div>
+          <h3 class="text-sm font-bold text-white uppercase tracking-wide mb-4">Explore</h3>
+          <ul class="space-y-3 text-sm">
+            <li><a href="index.html" class="hover:text-white transition-colors duration-200">Home</a></li>
+            <li><a href="recipes.html" class="hover:text-white transition-colors duration-200">Recipes</a></li>
+            <li><a href="about.html" class="hover:text-white transition-colors duration-200">About</a></li>
+            <li><a href="contact.html" class="hover:text-white transition-colors duration-200">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Categories -->
+        <div>
+          <h3 class="text-sm font-bold text-white uppercase tracking-wide mb-4">Categories</h3>
+          <ul class="space-y-3 text-sm">
+            <li><a href="recipes.html?category=Shabbat" class="hover:text-white transition-colors duration-200">Shabbat</a></li>
+            <li><a href="recipes.html?category=Quick%20%26%20Easy" class="hover:text-white transition-colors duration-200">Quick &amp; Easy</a></li>
+            <li><a href="recipes.html?category=Comfort%20Food" class="hover:text-white transition-colors duration-200">Comfort Food</a></li>
+            <li><a href="contact.html" class="hover:text-white transition-colors duration-200">Request a Recipe</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter / social -->
+        <div>
+          <h3 class="text-sm font-bold text-white uppercase tracking-wide mb-4">Stay Connected</h3>
+          <p class="text-sm text-slate-400 mb-4">Get a new recipe idea in your inbox every week.</p>
+          <form class="flex gap-2">
+            <label for="footer-email" class="sr-only">Email address</label>
+            <input
+              type="email"
+              id="footer-email"
+              placeholder="you@example.com"
+              class="w-full min-w-0 rounded-lg bg-slate-800 border border-slate-700 px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500 transition-colors duration-200"
+            />
+            <button
+              type="submit"
+              class="shrink-0 rounded-lg bg-brand-500 px-4 py-2.5 text-sm font-semibold text-white hover:bg-brand-600 transition-colors duration-200"
+            >
+              Join
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+      <div class="mt-12 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-sm text-slate-500">
+          &copy; <span id="current-year">2026</span> What's For Dinner. All rights reserved.
+        </p>
+        <div class="flex items-center gap-5">
+          <a href="https://www.facebook.com/whatsfordinnerima" target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook page" class="text-slate-400 hover:text-white transition-colors duration-200">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9v-2.89h2.54V9.84c0-2.5 1.49-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/whatsfordinnerima/" target="_blank" rel="noopener noreferrer" aria-label="Visit our Instagram profile" class="text-slate-400 hover:text-white transition-colors duration-200">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c2.72 0 3.06.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.2.6 1.73 1.13.53.53.87 1.07 1.13 1.73.25.64.42 1.37.47 2.43.05 1.06.06 1.4.06 4.12s-.01 3.06-.06 4.12c-.05 1.06-.22 1.79-.47 2.43-.26.66-.6 1.2-1.13 1.73-.53.53-1.07.87-1.73 1.13-.64.25-1.37.42-2.43.47-1.06.05-1.4.06-4.12.06s-3.06-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47-.66-.26-1.2-.6-1.73-1.13-.53-.53-.87-1.07-1.13-1.73-.25-.64-.42-1.37-.47-2.43C2.01 15.06 2 14.72 2 12s.01-3.06.06-4.12c.05-1.06.22-1.79.47-2.43.26-.66.6-1.2 1.13-1.73.53-.53 1.07-.87 1.73-1.13.64-.25 1.37-.42 2.43-.47C8.94 2.01 9.28 2 12 2zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.4-8.9a1.2 1.2 0 1 0 0-2.4 1.2 1.2 0 0 0 0 2.4z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/channel/UCyN7IVSa5Dn4fFJ5iUKzKxg" target="_blank" rel="noopener noreferrer" aria-label="Visit our YouTube channel" class="text-slate-400 hover:text-white transition-colors duration-200">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.8zM9.6 15.5v-7l6.1 3.5-6.1 3.5z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll-to-top Floating Action Button -->
+  <button
+    id="scroll-to-top"
+    type="button"
+    class="fixed bottom-6 right-6 z-40 flex items-center justify-center w-12 h-12 rounded-full bg-brand-500 text-white shadow-lg opacity-0 pointer-events-none translate-y-4 transition-all duration-300 hover:bg-brand-600 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2"
+    aria-label="Scroll back to top"
+  >
+    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+    </svg>
+  </button>
+
+  <!-- JS -->
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+/* ==========================================================================
+   style.css
+   Supplementary styles that extend Tailwind's utility classes.
+   Tailwind (via CDN) handles the vast majority of layout and spacing —
+   this file only holds what utility classes can't express cleanly:
+   smooth scrolling, custom scrollbars, entrance animations, and a couple
+   of bespoke gradient/variable definitions.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. GLOBAL SMOOTH SCROLLING
+   -------------------------------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+/* --------------------------------------------------------------------------
+   CUSTOM VARIABLES / GRADIENT UTILITIES
+   -------------------------------------------------------------------------- */
+:root {
+  --brand-glow-start: #fff7ed;
+  --brand-glow-mid: #ffffff;
+  --brand-glow-end: #fffbeb;
+  --scrollbar-track: #f1f5f9;
+  --scrollbar-thumb: #fb923c;
+  --scrollbar-thumb-hover: #f97316;
+}
+
+/* A soft, premium radial glow usable behind any section via class="bg-glow" */
+.bg-glow {
+  background-image: radial-gradient(
+    circle at top left,
+    var(--brand-glow-start),
+    var(--brand-glow-mid) 55%,
+    var(--brand-glow-end)
+  );
+}
+
+/* --------------------------------------------------------------------------
+   2. CUSTOM SCROLLBAR (WebKit + Firefox)
+   -------------------------------------------------------------------------- */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 9999px;
+  border: 2px solid var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* --------------------------------------------------------------------------
+   MOBILE NAV PANEL TRANSITION
+   Hidden by translating/fading off-screen rather than display:none, so the
+   open/close toggle (driven by script.js adding/removing the "open" class)
+   can animate smoothly instead of snapping.
+   -------------------------------------------------------------------------- */
+#mobile-menu {
+  opacity: 0;
+  transform: translateY(-8px);
+  visibility: hidden;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+}
+
+#mobile-menu.open {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+/* Subtle shadow on the header once the page is scrolled (toggled via JS) */
+#site-header.scrolled {
+  box-shadow: 0 2px 16px rgba(15, 23, 42, 0.08);
+}
+
+/* --------------------------------------------------------------------------
+   3. FADE-IN-UP ENTRANCE ANIMATION
+   Applied to hero copy, section headings, and card grids for a subtle,
+   premium entrance on page load.
+   -------------------------------------------------------------------------- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.7s ease-out both;
+}
+
+.fade-in-up-delay-1 {
+  animation-delay: 0.1s;
+}
+
+.fade-in-up-delay-2 {
+  animation-delay: 0.2s;
+}
+
+.fade-in-up-delay-3 {
+  animation-delay: 0.3s;
+}
+
+/* Respect users who've asked for less motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .fade-in-up,
+  .fade-in-up-delay-1,
+  .fade-in-up-delay-2,
+  .fade-in-up-delay-3 {
+    animation: none;
+  }
+
+  #mobile-menu {
+    transition: none;
+  }
+}
