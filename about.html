@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | What's For Dinner, Ima?</title>
+  <meta name="description" content="The story behind What's For Dinner, Ima? — family recipes, Shabbat tables, and the mission to make weeknight cooking feel like home." />
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23f97316%22/><text x=%2250%22 y=%2266%22 font-size=%2258%22 text-anchor=%22middle%22>🍽️</text></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: "#fff7ed", 100: "#ffedd5", 200: "#fed7aa", 300: "#fdba74", 400: "#fb923c",
+              500: "#f97316", 600: "#ea580c", 700: "#c2410c", 800: "#9a3412", 900: "#7c2d12",
+            },
+          },
+          fontFamily: { sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"] },
+        },
+      },
+    };
+  </script>
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="bg-white text-slate-800 font-sans antialiased">
+
+  <!-- ============================== HEADER / NAV ============================== -->
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-100 transition-shadow duration-300">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Primary navigation">
+      <div class="flex items-center justify-between h-16 md:h-20">
+        <a href="index.html" class="flex items-center gap-2 shrink-0">
+          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-brand-500 text-white text-xl" aria-hidden="true">🍽️</span>
+          <span class="text-xl md:text-2xl font-extrabold text-slate-900">What's For Dinner<span class="text-brand-500">?</span></span>
+        </a>
+
+        <div class="hidden md:flex items-center gap-8">
+          <a href="index.html" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors duration-200">Home</a>
+          <a href="recipes.html" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors duration-200">Recipes</a>
+          <a href="about.html" class="text-sm font-semibold text-brand-600 border-b-2 border-brand-500 pb-1" aria-current="page">About</a>
+          <a href="contact.html" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors duration-200">Contact</a>
+        </div>
+
+        <div class="hidden md:flex items-center gap-4">
+          <a href="recipes.html" class="inline-flex items-center justify-center rounded-full bg-brand-500 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-600 hover:shadow-md transition-all duration-200">
+            Find a Recipe
+          </a>
+        </div>
+
+        <button
+          id="menu-toggle"
+          type="button"
+          class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg text-slate-700 hover:bg-slate-100 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <svg id="icon-open" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
+          <svg id="icon-close" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+        </button>
+      </div>
+    </nav>
+
+    <div id="mobile-menu" class="md:hidden absolute top-full left-0 right-0 bg-white border-b border-slate-100 shadow-lg" role="menu">
+      <div class="flex flex-col px-4 sm:px-6 py-4 gap-1">
+        <a href="index.html" class="rounded-lg px-4 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 hover:text-brand-600 transition-colors duration-200" role="menuitem">Home</a>
+        <a href="recipes.html" class="rounded-lg px-4 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 hover:text-brand-600 transition-colors duration-200" role="menuitem">Recipes</a>
+        <a href="about.html" class="rounded-lg px-4 py-3 text-base font-semibold text-brand-600 bg-brand-50" role="menuitem" aria-current="page">About</a>
+        <a href="contact.html" class="rounded-lg px-4 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 hover:text-brand-600 transition-colors duration-200" role="menuitem">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="h-16 md:h-20"></div>
+
+  <!-- ============================== MAIN CONTENT ============================== -->
+  <main>
+
+    <!-- Hero -->
+    <section class="relative bg-gradient-to-br from-brand-50 via-white to-amber-50 overflow-hidden" aria-label="About introduction">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="text-center lg:text-left fade-in-up">
+            <span class="inline-block rounded-full bg-brand-100 text-brand-700 text-xs font-bold tracking-wide uppercase px-4 py-1.5 mb-6">Our story</span>
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 leading-tight">The question every kitchen asks</h1>
+            <p class="mt-6 text-lg text-slate-600 max-w-xl mx-auto lg:mx-0">
+              "Ima, what's for dinner?" It's the question that starts every evening in our house — and the one that started this whole project.
+            </p>
+          </div>
+          <div class="relative flex justify-center fade-in-up fade-in-up-delay-1">
+            <div class="w-56 h-56 sm:w-64 sm:h-64 rounded-3xl bg-white shadow-2xl shadow-brand-100 border border-slate-100 flex items-center justify-center">
+              <span class="text-[8rem] sm:text-[9rem] leading-none select-none" aria-hidden="true">👩‍🍳</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Story -->
+    <section class="py-16 sm:py-20 bg-white" aria-labelledby="story-heading">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="fade-in-up">
+          <h2 id="story-heading" class="text-3xl font-extrabold text-slate-900 mb-6">From a Friday-night kitchen to yours</h2>
+          <p class="text-lg text-slate-600 leading-relaxed">
+            What's For Dinner, Ima? started the way most family recipes do — scribbled on index cards, tested a hundred times, and passed down because they worked. Challah that actually rises. Roast chicken that's never dry. A matzo ball soup recipe guarded like a state secret until it finally wasn't.
+          </p>
+          <p class="mt-5 text-lg text-slate-600 leading-relaxed">
+            Every recipe here has been made for a real table — Shabbat dinners, weeknight scrambles, holiday spreads, and the nights when "whatever's in the fridge" needed to become something worth sitting down for. Nothing is published until it's been cooked, tasted, and approved by the toughest critics in the house: the kids.
+          </p>
+          <p class="mt-5 text-lg text-slate-600 leading-relaxed">
+            Our goal is simple — take the Jewish and Israeli home cooking we grew up with, write it down in plain language with real measurements and real timing, and make it easy enough that "what's for dinner" stops being the hardest question of the day.
+          </p>
+        </div>
+
+        <div class="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <div class="text-center fade-in-up">
+            <p class="text-3xl font-extrabold text-brand-500">500+</p>
+            <p class="mt-1 text-sm text-slate-600">Recipes tested in a real home kitchen</p>
+          </div>
+          <div class="text-center fade-in-up fade-in-up-delay-1">
+            <p class="text-3xl font-extrabold text-brand-500">10+</p>
+            <p class="mt-1 text-sm text-slate-600">Years of Friday-night practice</p>
+          </div>
+          <div class="text-center fade-in-up fade-in-up-delay-2">
+            <p class="text-3xl font-extrabold text-brand-500">1</p>
+            <p class="mt-1 text-sm text-slate-600">Very opinionated taste-testing family</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values -->
+    <section class="py-16 sm:py-20 bg-slate-50" aria-labelledby="values-heading">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-14 fade-in-up">
+          <h2 id="values-heading" class="text-3xl sm:text-4xl font-extrabold text-slate-900">What we believe about dinner</h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8">
+          <article class="rounded-2xl bg-white border border-slate-100 p-7 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 fade-in-up">
+            <span class="text-4xl" aria-hidden="true">🕯️</span>
+            <h3 class="mt-4 font-bold text-slate-900 text-lg">Tradition, made doable</h3>
+            <p class="mt-2 text-sm text-slate-600">Family recipes deserve clear instructions, not vague "a little of this" guesswork.</p>
+          </article>
+          <article class="rounded-2xl bg-white border border-slate-100 p-7 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 fade-in-up fade-in-up-delay-1">
+            <span class="text-4xl" aria-hidden="true">👨‍👩‍👧‍👦</span>
+            <h3 class="mt-4 font-bold text-slate-900 text-lg">Built for real tables</h3>
+            <p class="mt-2 text-sm text-slate-600">Every recipe is sized, timed, and tested for a family dinner — not a photo shoot.</p>
+          </article>
+          <article class="rounded-2xl bg-white border border-slate-100 p-7 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 fade-in-up fade-in-up-delay-2">
+            <span class="text-4xl" aria-hidden="true">💬</span>
+            <h3 class="mt-4 font-bold text-slate-900 text-lg">Honest, no gatekeeping</h3>
+            <p class="mt-2 text-sm text-slate-600">If a shortcut works just as well, we'll tell you. No recipe here is precious.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Where to find us -->
+    <section class="py-16 sm:py-20 bg-white" aria-labelledby="follow-heading">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in-up">
+        <h2 id="follow-heading" class="text-3xl font-extrabold text-slate-900">Come cook along with us</h2>
+        <p class="mt-4 text-lg text-slate-600">New recipes and behind-the-scenes kitchen chaos go up on social first.</p>
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+          <a href="https://www.facebook.com/whatsfordinnerima" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full bg-slate-900 text-white px-6 py-3 text-sm font-semibold hover:bg-slate-800 transition-colors duration-200">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9v-2.89h2.54V9.84c0-2.5 1.49-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg>
+            Facebook
+          </a>
+          <a href="https://www.instagram.com/whatsfordinnerima/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full bg-slate-900 text-white px-6 py-3 text-sm font-semibold hover:bg-slate-800 transition-colors duration-200">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c2.72 0 3.06.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.2.6 1.73 1.13.53.53.87 1.07 1.13 1.73.25.64.42 1.37.47 2.43.05 1.06.06 1.4.06 4.12s-.01 3.06-.06 4.12c-.05 1.06-.22 1.79-.47 2.43-.26.66-.6 1.2-1.13 1.73-.53.53-1.07.87-1.73 1.13-.64.25-1.37.42-2.43.47-1.06.05-1.4.06-4.12.06s-3.06-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47-.66-.26-1.2-.6-1.73-1.13-.53-.53-.87-1.07-1.13-1.73-.25-.64-.42-1.37-.47-2.43C2.01 15.06 2 14.72 2 12s.01-3.06.06-4.12c.05-1.06.22-1.79.47-2.43.26-.66.6-1.2 1.13-1.73.53-.53 1.07-.87 1.73-1.13.64-.25 1.37-.42 2.43-.47C8.94 2.01 9.28 2 12 2zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.4-8.9a1.2 1.2 0 1 0 0-2.4 1.2 1.2 0 0 0 0 2.4z"/></svg>
+            Instagram
+          </a>
+          <a href="https://www.youtube.com/channel/UCyN7IVSa5Dn4fFJ5iUKzKxg" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full bg-slate-900 text-white px-6 py-3 text-sm font-semibold hover:bg-slate-800 transition-colors duration-200">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.8zM9.6 15.5v-7l6.1 3.5-6.1 3.5z"/></svg>
+            YouTube
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================== FOOTER ============================== -->
+  <footer class="bg-slate-900 text-slate-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <div class="sm:col-span-2 lg:col-span-1">
+          <a href="index.html" class="flex items-center gap-2 mb-4">
+            <span class="flex items-center justify-center w-9 h-9 rounded-full bg-brand-500 text-white text-lg" aria-hidden="true">🍽️</span>
+            <span class="text-lg font-extrabold text-white">What's For Dinner<span class="text-brand-400">?</span></span>
+          </a>
+          <p class="text-sm text-slate-400 max-w-xs">
+            Helping home cooks turn "I don't know" into a meal worth making, one recipe at a time.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-sm font-bold text-white uppercase tracking-wide mb-4">Explore</h3>
+          <ul class="space-y-3 text-sm">
+            <li><a href="index.html" class="hover:text-white transition-colors duration-200">Home</a></li>
+            <li><a href="recipes.html" class="hover:text-white transition-colors duration-200">Recipes</a></li>
+            <li><a href="about.html" class="hover:text-white transition-colors duration-200">About</a></li>
+            <li><a href="contact.html" class="hover:text-white transition-colors duration-200">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-sm font-bold text-white uppercase tracking-wide mb-4">Categories</h3>
+          <ul class="space-y-3 text-sm">
+            <li><a href="recipes.html?category=Shabbat" class="hover:text-white transition-colors duration-200">Shabbat</a></li>
+            <li><a href="recipes.html?category=Quick%20%26%20Easy" class="hover:text-white transition-colors duration-200">Quick &amp; Easy</a></li>
+            <li><a href="recipes.html?category=Comfort%20Food" class="hover:text-white transition-colors duration-200">Comfort Food</a></li>
+            <li><a href="contact.html" class="hover:text-white transition-colors duration-200">Request a Recipe</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-sm font-bold text-white uppercase tracking-wide mb-4">Stay Connected</h3>
+          <p class="text-sm text-slate-400 mb-4">Get a new recipe idea in your inbox every week.</p>
+          <form class="flex gap-2">
+            <label for="footer-email" class="sr-only">Email address</label>
+            <input type="email" id="footer-email" placeholder="you@example.com" class="w-full min-w-0 rounded-lg bg-slate-800 border border-slate-700 px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500 transition-colors duration-200" />
+            <button type="submit" class="shrink-0 rounded-lg bg-brand-500 px-4 py-2.5 text-sm font-semibold text-white hover:bg-brand-600 transition-colors duration-200">Join</button>
+          </form>
+        </div>
+
+      </div>
+
+      <div class="mt-12 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-sm text-slate-500">&copy; <span id="current-year">2026</span> What's For Dinner. All rights reserved.</p>
+        <div class="flex items-center gap-5">
+          <a href="https://www.facebook.com/whatsfordinnerima" target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook page" class="text-slate-400 hover:text-white transition-colors duration-200">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9v-2.89h2.54V9.84c0-2.5 1.49-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/whatsfordinnerima/" target="_blank" rel="noopener noreferrer" aria-label="Visit our Instagram profile" class="text-slate-400 hover:text-white transition-colors duration-200">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c2.72 0 3.06.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.2.6 1.73 1.13.53.53.87 1.07 1.13 1.73.25.64.42 1.37.47 2.43.05 1.06.06 1.4.06 4.12s-.01 3.06-.06 4.12c-.05 1.06-.22 1.79-.47 2.43-.26.66-.6 1.2-1.13 1.73-.53.53-1.07.87-1.73 1.13-.64.25-1.37.42-2.43.47-1.06.05-1.4.06-4.12.06s-3.06-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47-.66-.26-1.2-.6-1.73-1.13-.53-.53-.87-1.07-1.13-1.73-.25-.64-.42-1.37-.47-2.43C2.01 15.06 2 14.72 2 12s.01-3.06.06-4.12c.05-1.06.22-1.79.47-2.43.26-.66.6-1.2 1.13-1.73.53-.53 1.07-.87 1.73-1.13.64-.25 1.37-.42 2.43-.47C8.94 2.01 9.28 2 12 2zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.4-8.9a1.2 1.2 0 1 0 0-2.4 1.2 1.2 0 0 0 0 2.4z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/channel/UCyN7IVSa5Dn4fFJ5iUKzKxg" target="_blank" rel="noopener noreferrer" aria-label="Visit our YouTube channel" class="text-slate-400 hover:text-white transition-colors duration-200">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.8zM9.6 15.5v-7l6.1 3.5-6.1 3.5z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button
+    id="scroll-to-top"
+    type="button"
+    class="fixed bottom-6 right-6 z-40 flex items-center justify-center w-12 h-12 rounded-full bg-brand-500 text-white shadow-lg opacity-0 pointer-events-none translate-y-4 transition-all duration-300 hover:bg-brand-600 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2"
+    aria-label="Scroll back to top"
+  >
+    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>
+  </button>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
